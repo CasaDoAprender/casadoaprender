@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SectionService } from "app/core/section.service";
 import { PlayerComponent } from "app/player/player.component";
-import { ControlsComponent } from "app/player/controls/controls.component";
 import { GadgetsModule } from "app/gadgets/gadgets.module";
 import { InterventionComponent } from "app/player/intervention/intervention.component";
 import { NextButtonComponent } from "app/player/next-button/next-button.component";
