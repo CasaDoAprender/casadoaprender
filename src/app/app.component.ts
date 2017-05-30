@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SectionService } from "app/core/section.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  constructor(private sectionService: SectionService) {
+    this.sectionService.load('section-01.json');
+  }
 }

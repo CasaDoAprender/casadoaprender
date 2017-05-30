@@ -1,0 +1,24 @@
+<div class="full-container">
+  <div *ngIf="error">
+    {{ error }}
+  </div>
+  <div class="scroll">
+
+    <div class="container">
+      <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
+        <app-gadget [gadget]="gadget"></app-gadget>
+        <!--<app-controls [gadget]="gadget"></app-controls>-->
+      </div>
+    </div>
+
+  </div>
+
+  <app-intervention>
+    <div class="gadget-items" *ngFor="let gadget of interventionState?.page.gadgets; index as i">
+      <app-gadget [gadget]="gadget"></app-gadget>
+      <!--<app-controls [gadget]="gadget"></app-controls>-->
+    </div>
+  </app-intervention>
+
+  <app-next-button (onNext)="nextState()"></app-next-button>
+</div>
