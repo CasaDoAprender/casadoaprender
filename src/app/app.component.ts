@@ -10,6 +10,10 @@ export class AppComponent {
   title = 'app works!';
 
   constructor(private sectionService: SectionService) {
-    this.sectionService.load('section-01.json');
+    this.sectionService.load('casa.json');
+  }
+
+  select(state: string) {
+    console.log(state);
   }
 }

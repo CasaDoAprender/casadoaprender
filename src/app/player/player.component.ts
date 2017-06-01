@@ -37,6 +37,9 @@ export class PlayerComponent implements OnInit {
   }
 
   nextState() {
+    console.log('current state');
+    console.log(this.currentState);
+    
     if (this.currentState && this.currentState.behavior.onNext) {
       this.currentState.behavior.onNext();
     }
@@ -44,6 +47,7 @@ export class PlayerComponent implements OnInit {
 
   private updateInternalState(state: State) {
     if (state) {
+      this.sectionServ.currentState = state;
       this.currentState = state; // save the reference to call 'onNext()'
 
       // call behavior and update page elements

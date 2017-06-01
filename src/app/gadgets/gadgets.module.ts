@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/shared/shared.module';
+import { InlineSVGModule } from 'ng-inline-svg';
+
 import { GadgetService } from './gadget.service';
 import { GadgetsComponent } from './gadgets.component';
 import { ChoiceComponent } from './choice/choice.component';
@@ -9,11 +11,14 @@ import { InputBoardComponent } from "./input/input-board.component";
 import { TextComponent } from './text/text.component';
 import { TextBoardComponent } from "./text/text-board.component";
 import { Choice_v2Component } from './choice_v2/choice_v2.component';
+import { SvgBoardComponent } from "app/gadgets/svg/svg-board.component";
+import { SvgComponent } from "app/gadgets/svg/svg.component";
 
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    InlineSVGModule
   ],
   declarations: [
     GadgetsComponent,
@@ -23,7 +28,8 @@ import { Choice_v2Component } from './choice_v2/choice_v2.component';
     InputBoardComponent,
     TextComponent,
     TextBoardComponent,
-    Choice_v2Component
+    SvgComponent,
+    SvgBoardComponent
 ],
   entryComponents: [
     ChoiceComponent,
@@ -31,7 +37,9 @@ import { Choice_v2Component } from './choice_v2/choice_v2.component';
     InputComponent,
     InputBoardComponent,
     TextComponent,
-    TextBoardComponent
+    TextBoardComponent,
+    SvgComponent,
+    SvgBoardComponent
   ],
   providers: [
     GadgetService

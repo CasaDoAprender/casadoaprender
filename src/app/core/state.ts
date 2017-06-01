@@ -21,6 +21,7 @@ export interface IBehavior {
   block?: string;
   onEnter?: Function;
   onNext?: Function;
+  onTouch?: Function;
 }
 
 export interface IState {
@@ -53,7 +54,8 @@ export class State implements IState {
     type: 'block',
     code: '',
     onEnter: doNothing,
-    onNext: doNothing
+    onNext: doNothing,
+    onTouch: doNothing
   };
 
   constructor(private section: Section, state?: Partial<IState>) {
@@ -76,30 +78,33 @@ export class State implements IState {
   }
 
   updateBehavior() {
-    if (this.behavior.type == 'block') {
-      if (this.behavior.block != undefined && this.behavior.block.length > 1) {
-        let workspace = new Blockly.Workspace();
-        let dom = Blockly.Xml.textToDom(this.behavior.block);
-        Blockly.Xml.domToWorkspace(dom, workspace);
-        this.behavior.code = Blockly.JavaScript.workspaceToCode(workspace);
-      }
-    }
+    // if (this.behavior.type == 'block') {
+    //   if (this.behavior.block != undefined && this.behavior.block.length > 1) {
+    //     let workspace = new Blockly.Workspace();
+    //     let dom = Blockly.Xml.textToDom(this.behavior.block);
+    //     Blockly.Xml.domToWorkspace(dom, workspace);
+    //     this.behavior.code = Blockly.JavaScript.workspaceToCode(workspace);
+    //   }
+    // }
     if (this.behavior.code) {
       let code = `
         (function(state, globals) {
           function onEnter() {};
           function onNext() {};
-          ${ this.behavior.code}
+          function onTouch() {};
+          ${ this.behavior.code }
           return {
             onEnter: onEnter,
-            onNext: onNext
+            onNext: onNext,
+            onTouch: onTouch,
           }
         })(this, State.globals);
         `;
       let codeEval = eval(code);  // TODO check security risks
-      // console.log(codeEval);
+      console.log(codeEval);
       this.behavior.onEnter = codeEval.onEnter;
       this.behavior.onNext = codeEval.onNext;
+      this.behavior.onTouch = codeEval.onTouch;
     }
   }
 

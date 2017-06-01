@@ -56,6 +56,12 @@ export class SectionService {
       );
   }
 
+  set currentState(state: State) {
+    this._currentState = state;
+    this._currentStateSource.next(this._currentState);
+  }
+
+  // TODO remove
   private setCurrentState(state: State) {
     // if (state) {
     this._currentState = state;
@@ -73,12 +79,6 @@ export class SectionService {
       let initialState = this._currentSection.states.find(state => state.id == this._currentSection.initialState);
       this.setCurrentState(initialState);
     }
-
-    // remove the event subscription from the previous event and creates a new one with the new event.
-    // if (this._subscription) {
-    //   this._subscription.unsubscribe();
-    // }
-    // this._subscription = newSection.next$.subscribe(s => this.changeSection(s));
   }
 
   selectState(stateLabel: string) {
@@ -92,9 +92,9 @@ export class SectionService {
     return this._currentSection;
   }
 
-  // get currentState() {
-  //   return this._currentState;
-  // }
+  get currentState() {
+    return this._currentState;
+  }
 
   // createState(stateData: IState): State {
   //   let state = this._currentSection.createState(stateData);
