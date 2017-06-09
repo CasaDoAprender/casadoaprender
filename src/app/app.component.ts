@@ -10,7 +10,8 @@ export class AppComponent {
   title = 'app works!';
 
   constructor(private sectionService: SectionService) {
-    this.sectionService.load('casa.json');
+    // this.sectionService.load('casa.json');
+    this.sectionService.loadFromFirebase();
   }
 
   select(state: string) {

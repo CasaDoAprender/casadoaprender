@@ -9,9 +9,11 @@ import 'rxjs/add/operator/catch';
 
 import { HttpUtils } from '../common/http-utils';
 
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+
 import { IState } from './state';
 import { State } from './state';
-import { Section } from './section';
+import { Section, ISection } from './section';
 
 const urlPath = 'assets/server/';
 
@@ -29,7 +31,9 @@ export class SectionService {
   private _currentStateSource = new Subject<State>();        // source
   currentState$ = this._currentStateSource.asObservable();   // stream
 
-  constructor(private _http: Http) {
+  private book: FirebaseObjectObservable<Partial<ISection>>;
+
+  constructor(private _http: Http, private db: AngularFireDatabase) {
     this.reset();
   }
 
@@ -54,6 +58,15 @@ export class SectionService {
         console.log('error: ', error);
       }
       );
+  }
+
+  loadFromFirebase() {
+    this.book = this.db.object('/book');
+    this.book.subscribe((data: Partial<ISection>) => {
+      const section = new Section(data);
+      section.origin = 'firebase';
+      this.changeSection(section);
+    });
   }
 
   set currentState(state: State) {
