@@ -1,0 +1,63 @@
+<div class="container">
+      <div style="padding-bottom:10px">
+        {{gadget.selectedQuestion.pergunta}}
+      </div>
+
+    <table>
+      <md-radio-group [(ngModel)]="gadget.value">
+      <tr>
+        <td>
+          <md-radio-button [value]="getValue('1')"></md-radio-button>
+        </td>
+        <td class="mat-radio-button">
+          {{gadget.selectedQuestion.op_resp_1}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-radio-button [value]="getValue('2')"></md-radio-button>
+        </td>
+        <td class="mat-radio-button">
+          {{gadget.selectedQuestion.op_resp_2}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-radio-button [value]="getValue('3')"></md-radio-button>
+        </td>
+        <td class="mat-radio-button">
+          {{gadget.selectedQuestion.op_resp_3}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-radio-button [value]="getValue('4')"></md-radio-button>
+        </td>
+        <td class="mat-radio-button">
+          {{gadget.selectedQuestion.op_resp_4}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-radio-button [value]="getValue('5')"></md-radio-button>
+        </td>
+        <td class="mat-radio-button">
+          {{gadget.selectedQuestion.op_resp_5}}
+        </td>
+      </tr>
+    </md-radio-group>
+    </table>
+
+    <div style="padding-top:20px">
+      <table>
+        <tr>
+          <td>
+            <button md-button color="primary" (click)="helpDisplay()">HELP</button>
+          </td>
+          <td *ngIf="isHelpOn">
+            {{ gadget.selectedQuestion.ajuda_pergunta }}
+          <td>
+        </tr>
+      </table>
+    </div>
+</div>
