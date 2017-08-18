@@ -11,7 +11,7 @@ import { Quiz } from 'app/core/quiz';
 export class QuizComponent implements OnInit {
 
   @Input() gadget: Quiz;
-  private isHelpOn: boolean;
+  public isHelpOn: boolean;
 
   constructor() {
   }

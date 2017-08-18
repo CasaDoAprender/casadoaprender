@@ -8,8 +8,8 @@ import { Choice } from "app/core/choice";
   styleUrls: ['./choice-board.component.scss']
 })
 export class ChoiceBoardComponent {
-  private _newValue: string;
-  private _newText: string;
+  public _newValue: string;
+  public _newText: string;
 
   @Input() gadget: Choice;
 
@@ -51,7 +51,7 @@ export class ChoiceBoardComponent {
     console.log('onKeyDown');
     console.log(this._newValue);
     console.log(this._newText);
-    
+
   }
 
   onKeyPress(event: KeyboardEvent) {
@@ -59,7 +59,7 @@ export class ChoiceBoardComponent {
     // console.log(event.key);
     console.log(this._newValue);
     console.log(this._newText);
-    
+
 
     if ((event.key == 'Enter' || event.key == 'Tab') &&
         (this._newValue != undefined && this._newValue.length > 0) &&

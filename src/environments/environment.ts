@@ -11,6 +11,6 @@ export const environment = {
     databaseURL: "https://casa-do-aprender-d7556.firebaseio.com",
     projectId: "casa-do-aprender-d7556",
     storageBucket: "casa-do-aprender-d7556.appspot.com",
-    messagingSenderId: "245162409377"    
+    messagingSenderId: "245162409377"
   }
 };

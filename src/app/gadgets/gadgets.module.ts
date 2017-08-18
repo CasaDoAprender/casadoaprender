@@ -25,6 +25,7 @@ import { QuizBoardComponent } from './quiz/quiz-board.component';
     GadgetsComponent,
     ChoiceBoardComponent,
     ChoiceComponent,
+    Choice_v2Component,
     InputComponent,
     InputBoardComponent,
     TextComponent,

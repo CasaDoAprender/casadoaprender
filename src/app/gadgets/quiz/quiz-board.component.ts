@@ -11,10 +11,10 @@ import { Quiz, IQuestion } from 'app/core/quiz';
   styleUrls: ['./quiz-board.component.css']
 })
 export class QuizBoardComponent {
-  private _newValue: string;
+  public _newValue: string;
   public description: string = "";
   public element: any;
-  private questions: IQuestion[] = [];
+  public questions: IQuestion[] = [];
 
   @Input() gadget: Quiz;
 
