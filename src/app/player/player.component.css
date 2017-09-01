@@ -1,3 +1,8 @@
+*{
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
 .gadget-items {
   display: flex;
   flex-direction: column;

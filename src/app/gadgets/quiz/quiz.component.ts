@@ -20,11 +20,15 @@ export class QuizComponent implements OnInit {
     this.isHelpOn = false;
   }
 
-  getValue(value: string) {
-    if(value == this.gadget.selectedQuestion.resp_certa) {
-       return this.gadget.transitionRight;
+  ngAfterViewInit() {
+    this.gadget.setReady();
+  }
+
+  setGadgetValue(option: string) {
+    if(option == this.gadget.selectedQuestion.resp_certa) {
+       this.gadget.value = this.gadget.transitionRight;
     } else {
-       return this.gadget.transitionWrong;
+       this.gadget.value = this.gadget.transitionWrong;
     }
   }
 

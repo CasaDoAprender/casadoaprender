@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
+import { StateService } from './core/state.service';
 import { SectionService } from "app/core/section.service";
 import { PlayerComponent } from "app/player/player.component";
 import { GadgetsModule } from "app/gadgets/gadgets.module";
@@ -38,7 +39,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
     AngularFireAuthModule
   ],
   providers: [
-    SectionService
+    SectionService,
+    StateService
   ],
   bootstrap: [AppComponent]
 })

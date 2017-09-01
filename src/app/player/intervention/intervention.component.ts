@@ -48,4 +48,8 @@ export class InterventionComponent implements OnInit {
   ngOnInit() {
   }
 
+  preventRefresh(event) {
+    event.stopPropagation();
+  }
+
 }

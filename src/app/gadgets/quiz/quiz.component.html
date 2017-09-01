@@ -2,12 +2,12 @@
       <div style="padding-bottom:10px">
         {{gadget.selectedQuestion.pergunta}}
       </div>
-
+  <div class="row">
     <table>
-      <md-radio-group [(ngModel)]="gadget.value">
+      <md-radio-group>
       <tr>
         <td>
-          <md-radio-button [value]="getValue('1')"></md-radio-button>
+          <md-radio-button [value]="1" (click)=setGadgetValue(1)></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{gadget.selectedQuestion.op_resp_1}}
@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <td>
-          <md-radio-button [value]="getValue('2')"></md-radio-button>
+          <md-radio-button [value]="2" (click)=setGadgetValue(2)></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{gadget.selectedQuestion.op_resp_2}}
@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <td>
-          <md-radio-button [value]="getValue('3')"></md-radio-button>
+          <md-radio-button [value]="3" (click)=setGadgetValue(3)></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{gadget.selectedQuestion.op_resp_3}}
@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <td>
-          <md-radio-button [value]="getValue('4')"></md-radio-button>
+          <md-radio-button [value]="4" (click)=setGadgetValue(4)></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{gadget.selectedQuestion.op_resp_4}}
@@ -39,7 +39,7 @@
       </tr>
       <tr>
         <td>
-          <md-radio-button [value]="getValue('5')"></md-radio-button>
+          <md-radio-button [value]="5" (click)=setGadgetValue(5)></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{gadget.selectedQuestion.op_resp_5}}
@@ -47,6 +47,7 @@
       </tr>
     </md-radio-group>
     </table>
+  </div>
 
     <div style="padding-top:20px">
       <table>
