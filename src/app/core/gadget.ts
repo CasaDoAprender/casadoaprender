@@ -1,6 +1,6 @@
 import { Page } from './page'
 
-export type GadgetType = 'input' | 'choice' | 'text' | 'svg' | 'quiz';
+export type GadgetType = 'input' | 'choice' | 'text' | 'svg' | 'quiz' | 'login';
 
 export interface IGadget {
   type: GadgetType;

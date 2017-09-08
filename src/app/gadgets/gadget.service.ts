@@ -11,6 +11,8 @@ import { SvgComponent } from "app/gadgets/svg/svg.component";
 import { SvgBoardComponent } from "app/gadgets/svg/svg-board.component";
 import { QuizComponent } from "./quiz/quiz.component";
 import { QuizBoardComponent } from "./quiz/quiz-board.component";
+import { LoginComponent } from "./login/login.component";
+import { LoginBoardComponent } from "./login/login-board.component";
 
 
 @Injectable()
@@ -51,6 +53,10 @@ export class GadgetService {
       case 'quiz':
         componentType = QuizComponent;
         boardType = QuizBoardComponent;
+        break;
+      case 'login':
+        componentType = LoginComponent;
+        boardType = LoginBoardComponent;
         break;
     }
     let component = this._createComponent(componentType, componentContainer, gadget);

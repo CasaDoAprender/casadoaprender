@@ -39,7 +39,7 @@ export class StateService {
     //     error => {
     //       console.log('error: ', error);
     //     }
-    //   );    
+    //   );
   }
 
   private changeState(newState: State) {

@@ -4,6 +4,7 @@ import { Text } from './text';
 import { Gadget, GadgetType } from './gadget';
 import { Svg } from './svg';
 import { Quiz } from './quiz';
+import { Login } from './login';
 
 export class Page {
   gadgets: Gadget[];
@@ -28,10 +29,14 @@ export class Page {
           let svg = gadget as Svg;
           this.gadgets.push(new Svg(svg.file));
           break;
-          case 'quiz':
-            let quiz = gadget as Quiz;
-            this.gadgets.push(new Quiz(quiz.selectedQuestion, quiz.transitionRight, quiz.transitionWrong));
-            break;
+        case 'quiz':
+          let quiz = gadget as Quiz;
+          this.gadgets.push(new Quiz(quiz.selectedQuestion, quiz.transitionRight, quiz.transitionWrong));
+          break;
+        case 'login':
+          let login = gadget as Login;
+          this.gadgets.push(new Login(login.isGoogleLoginOn));
+          break;
       }
     }
   }
@@ -85,6 +90,9 @@ export class Page {
         break;
       case 'quiz':
         this.gadgets.splice(index, 0, new Quiz());
+        break;
+      case 'login':
+        this.gadgets.splice(index, 0, new Login());
         break;
     }
   }

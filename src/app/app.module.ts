@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { StateService } from './core/state.service';
 import { SectionService } from "app/core/section.service";
+import { AuthService } from './core/auth.service';
 import { PlayerComponent } from "app/player/player.component";
 import { GadgetsModule } from "app/gadgets/gadgets.module";
 import { InterventionComponent } from "app/player/intervention/intervention.component";
@@ -40,7 +41,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
   ],
   providers: [
     SectionService,
-    StateService
+    StateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
