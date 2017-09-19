@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlatformLocation } from '@angular/common'
 import { SectionService } from "app/core/section.service";
 
 @Component({
@@ -9,9 +10,13 @@ import { SectionService } from "app/core/section.service";
 export class AppComponent {
   title = 'app works!';
 
-  constructor(private sectionService: SectionService) {
+  constructor(private sectionService: SectionService, location: PlatformLocation) {
     // this.sectionService.load('casa.json');
     this.sectionService.loadFromFirebase();
+    location.onPopState(() => {
+
+        console.log('pressed back!');
+    });
   }
 
   select(state: string) {

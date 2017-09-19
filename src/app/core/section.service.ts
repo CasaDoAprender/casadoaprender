@@ -115,11 +115,11 @@ export class SectionService {
   //   return state;
   // }
 
-  // nextState() {
-  //   if (this._currentState.behavior.onNext) {
-  //     this._currentState.behavior.onNext();
-  //   }
-  // }
+  nextState() {
+    if (this._currentState.behavior.onNext) {
+      this._currentState.behavior.onNext();
+    }
+  }
 
   save() {
     let json = this._currentSection.toJson();

@@ -13,7 +13,10 @@ import { TextBoardComponent } from "./text/text-board.component";
 import { Choice_v2Component } from './choice_v2/choice_v2.component';
 import { SvgBoardComponent } from "app/gadgets/svg/svg-board.component";
 import { SvgComponent } from "app/gadgets/svg/svg.component";
-
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizBoardComponent } from './quiz/quiz-board.component';
+import { LoginComponent } from './login/login.component';
+import { LoginBoardComponent } from './login/login-board.component';
 
 @NgModule({
   imports: [
@@ -24,12 +27,17 @@ import { SvgComponent } from "app/gadgets/svg/svg.component";
     GadgetsComponent,
     ChoiceBoardComponent,
     ChoiceComponent,
+    Choice_v2Component,
     InputComponent,
     InputBoardComponent,
     TextComponent,
     TextBoardComponent,
     SvgComponent,
-    SvgBoardComponent
+    SvgBoardComponent,
+    QuizComponent,
+    QuizBoardComponent,
+    LoginComponent,
+    LoginBoardComponent
 ],
   entryComponents: [
     ChoiceComponent,
@@ -39,7 +47,11 @@ import { SvgComponent } from "app/gadgets/svg/svg.component";
     TextComponent,
     TextBoardComponent,
     SvgComponent,
-    SvgBoardComponent
+    SvgBoardComponent,
+    QuizComponent,
+    QuizBoardComponent,
+    LoginComponent,
+    LoginBoardComponent
   ],
   providers: [
     GadgetService

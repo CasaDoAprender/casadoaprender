@@ -16,4 +16,8 @@ export class ChoiceComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    this.gadget.setReady();
+  }
+
 }

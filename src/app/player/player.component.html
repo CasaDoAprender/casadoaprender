@@ -6,7 +6,7 @@
 
     <div class="container">
       <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
-        <app-gadget [gadget]="gadget"></app-gadget>
+        <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
         <!--<app-controls [gadget]="gadget"></app-controls>-->
       </div>
     </div>
@@ -15,7 +15,7 @@
 
   <app-intervention>
     <div class="gadget-items" *ngFor="let gadget of interventionState?.page.gadgets; index as i">
-      <app-gadget [gadget]="gadget"></app-gadget>
+      <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
       <!--<app-controls [gadget]="gadget"></app-controls>-->
     </div>
   </app-intervention>

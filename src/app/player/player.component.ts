@@ -39,7 +39,7 @@ export class PlayerComponent implements OnInit {
   nextState() {
     console.log('current state');
     console.log(this.currentState);
-    
+
     if (this.currentState && this.currentState.behavior.onNext) {
       this.currentState.behavior.onNext();
     }

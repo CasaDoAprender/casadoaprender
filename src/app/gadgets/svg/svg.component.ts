@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 import { Gadget } from 'app/core/gadget';
+import { Svg } from 'app/core/svg';
 import { SectionService } from "app/core/section.service";
 
 @Component({
@@ -8,14 +9,20 @@ import { SectionService } from "app/core/section.service";
   styleUrls: ['./svg.component.css']
 })
 export class SvgComponent implements OnInit {
-  @Input() gadget: Gadget;
+  @Input() gadget: Svg;
+  img: any = 'assets/server/plholder.svg';
 
   constructor(private renderer: Renderer2, private sectionServ: SectionService) { }
 
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    this.img = this.gadget.file;
+  }
+
   prepare(svgElm: SVGElement) {
+    this.gadget.setReady();
     const touchables = svgElm.getElementsByClassName('touchable');
     for(let i = 0; i < touchables.length; i++) {
       let touchable = touchables[i];
@@ -23,8 +30,8 @@ export class SvgComponent implements OnInit {
         const state = this.sectionServ.currentState;
         console.log(state);
         console.log(touchable.id);
-        
-        
+
+
         state.behavior.onTouch(touchable.id);
       })
     }
