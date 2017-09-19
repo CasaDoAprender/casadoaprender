@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { SectionService } from 'app/core/section.service';
 import { Gadget } from 'app/core/gadget';
 import { Quiz } from 'app/core/quiz';
 
@@ -13,7 +14,7 @@ export class QuizComponent implements OnInit {
   @Input() gadget: Quiz;
   public isHelpOn: boolean;
 
-  constructor() {
+  constructor(private sectionService: SectionService) {
   }
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class QuizComponent implements OnInit {
 
   helpDisplay() {
     this.isHelpOn = !this.isHelpOn;
+    //this.sectionService.nextState();
   }
 
 }
