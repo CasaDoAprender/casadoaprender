@@ -26,6 +26,8 @@ export class PlayerComponent implements OnInit {
   interventionState: Readonly<State>;
   private subscription: Subscription;  // to listen to state transitions (onNext())
 
+  menu: boolean;
+
   constructor(private sectionServ: SectionService) {
   }
 
@@ -80,6 +82,8 @@ export class PlayerComponent implements OnInit {
       console.log('book finished');
 
     }
+
+    this.menu = (state.label == 'menu' ? true : false);
   }
 
 
