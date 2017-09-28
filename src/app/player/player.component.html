@@ -6,10 +6,6 @@
 
     <div class="container">
 
-      <div *ngIf="menu">
-        <opcoes-menu></opcoes-menu>
-      </div>
-      
       <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
         <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
         <!--<app-controls [gadget]="gadget"></app-controls>-->
@@ -24,6 +20,10 @@
       <!--<app-controls [gadget]="gadget"></app-controls>-->
     </div>
   </app-intervention>
+
+  <div *ngIf="menu">
+    <opcoes-menu></opcoes-menu>
+  </div>
 
   <app-next-button (onNext)="nextState()"></app-next-button>
 </div>
