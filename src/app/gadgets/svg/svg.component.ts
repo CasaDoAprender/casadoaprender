@@ -10,7 +10,7 @@ import { SectionService } from "app/core/section.service";
 })
 export class SvgComponent implements OnInit {
   @Input() gadget: Svg;
-  img: any = 'assets/server/plholder.svg';
+  img: any = 'assets/server/loading.svg';
 
   constructor(private renderer: Renderer2, private sectionServ: SectionService) { }
 

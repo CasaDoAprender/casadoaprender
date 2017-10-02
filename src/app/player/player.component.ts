@@ -27,6 +27,7 @@ export class PlayerComponent implements OnInit {
   private subscription: Subscription;  // to listen to state transitions (onNext())
 
   menu: boolean;
+  private waitingLoad: boolean = true;
 
   constructor(private sectionServ: SectionService) {
   }
@@ -84,6 +85,7 @@ export class PlayerComponent implements OnInit {
     }
 
     this.menu = (state.label == 'menu' ? true : false);
+    this.waitingLoad = false;
   }
 
 
