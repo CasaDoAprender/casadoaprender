@@ -41,6 +41,10 @@ export class OpcoesMenuComponent implements OnInit {
     this.sectionService.currentState.goToPage("summary");
   }
 
+  callCredits() {
+    this.sectionService.currentState.goToPage("creditos");
+  }
+
   get isVisible() { return this.visible != 'hidden'; }
   show() {
     // this.height = 100;
