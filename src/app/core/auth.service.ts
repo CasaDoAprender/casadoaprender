@@ -8,15 +8,20 @@ import { State } from 'app/core/state';
 @Injectable()
 export class AuthService {
 
-  private user$: Observable<firebase.User>;
+  private userState$: Observable<firebase.User>;
+  private user: firebase.User;
 
   constructor(private firebaseAuth: AngularFireAuth) {
-    this.user$ = firebaseAuth.authState;
+    this.userState$ = firebaseAuth.authState;
     //this.firebaseAuth.auth.onAuthStateChanged(_ => '');
   }
 
   public getUser() {
-    return this.user$;
+    return this.user;
+  }
+
+  public getUserState() {
+    return this.userState$;
   }
 
   private login(provider) {
@@ -41,12 +46,20 @@ export class AuthService {
   logout() {
     this.firebaseAuth.auth.signOut();
     State.globals['user'] = '';
+    this.user = null;
   }
 
   updateUser() {
-    //State.globals['user'] = this.firebaseAuth.auth.currentUser.displayName;
-    this.user$.subscribe(user => {
-      State.globals['user'] = user.displayName;
+    //TODO check auth call
+    this.userState$.subscribe(user => {
+      if(user) {
+        this.user = user;
+        State.globals['user'] = this.user.displayName;
+        firebase.database().ref('/users/' + this.user.uid).update({nome: this.user.displayName});
+      } else {
+        State.globals['user'] = '';
+        this.user = null;
+      }
     });
   }
 
