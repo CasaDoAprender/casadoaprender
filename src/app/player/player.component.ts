@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 // import { StateService } from 'app/core/state.service';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { State } from 'app/core/state';
+import { Quiz } from 'app/core/quiz';
 
 
 @Component({
@@ -44,6 +45,13 @@ export class PlayerComponent implements OnInit {
     console.log(this.currentState);
 
     if (this.currentState && this.currentState.behavior.onNext) {
+
+      var quiz = this.currentState.page.gadgets.find(gadget => gadget.type == 'quiz') as Quiz;
+      if(quiz) {
+        quiz.quizComponent.answer();
+        console.log("answered");
+      }
+
       this.currentState.behavior.onNext();
     }
   }
@@ -82,6 +90,11 @@ export class PlayerComponent implements OnInit {
       // what to do: close the player? or show a pre-defined page
       console.log('book finished');
 
+    }
+
+    var quiz = state.page.gadgets.find(gadget => gadget.type == 'quiz') as Quiz;
+    if(quiz) {
+      quiz.startTime = new Date().getTime();
     }
 
     this.menu = (state.label == 'menu' ? true : false);

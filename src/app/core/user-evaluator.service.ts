@@ -9,13 +9,23 @@ export class UserEvaluatorService {
   constructor(private db: AngularFireDatabase, private authService: AuthService) { }
 
 
-  answer(data) {
+  answer(questionId, data) {
 
-    var ref = this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + data['questionId']);
+    if(this.authService.getUser() != null) {
 
-    ref.child("/attempts").once("value").then(attempts => data['attempts'] = (attempts.val() + 1));
-    //data['score'] = this.getScore(data['questionId'],  data['rightAnswer']);
-    //this.db.database.ref('/users/' + this.authService.getUser().uid).update(data);
+      var ref = this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + questionId);
+
+      ref.child("/attempts").once("value").then(attempts => {
+        ref.update({attempts:  attempts.val() + 1});
+      });
+      ref.child("/time").once("value").then(time => {
+        ref.update({time:  data['time'] + time.val()});
+      });
+      //data['score'] = this.getScore(data['questionId'],  data['rightAnswer']);
+
+
+      ref.update({rightAnswer: data['rightAnswer']});
+    }
 
   }
 
@@ -26,7 +36,7 @@ export class UserEvaluatorService {
 
 
   getScore(questionId, rightAnswer) {
-    var ref = this.db.database.ref('/users/' + this.authService.getUser().uid);
-    ref.child("/questions/" + questionId + "helpUsed").once("value").then();
+    var ref = this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + questionId);
+    ref.child("helpUsed").once("value").then();
   }
 }

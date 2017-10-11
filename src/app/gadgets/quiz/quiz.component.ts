@@ -16,7 +16,7 @@ export class QuizComponent implements OnInit {
   public isHelpOn: boolean;
   private rightAnswer: boolean;
 
-  constructor(private sectionService: SectionService, private userEvaluator: UserEvaluatorService) {
+  constructor(private userEvaluator: UserEvaluatorService) {
   }
 
   ngOnInit() {
@@ -25,6 +25,7 @@ export class QuizComponent implements OnInit {
 
   ngAfterViewInit() {
     this.gadget.setReady();
+    this.gadget.quizComponent = this;
   }
 
   setGadgetValue(option: string) {
@@ -42,13 +43,13 @@ export class QuizComponent implements OnInit {
     this.userEvaluator.setHelpTrue(this.gadget.selectedQuestion.id);
   }
 
-  private answer() {
+  answer() {
     var data = {
-      questionId: this.gadget.selectedQuestion.id,
-      rightAnswer: this.rightAnswer
+      rightAnswer: this.rightAnswer,
+      time: (new Date().getTime() - this.gadget.startTime)
     }
 
-    this.userEvaluator.answer(data);
+    this.userEvaluator.answer(this.gadget.selectedQuestion.id, data);
   }
 
 }

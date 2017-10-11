@@ -1,4 +1,5 @@
 import { Gadget } from './gadget';
+import { QuizComponent } from 'app/gadgets/quiz/quiz.component';
 
 export interface IQuestion {
   id: string;
@@ -21,6 +22,8 @@ export class Quiz extends Gadget {
     public value: string;
     public transitionRight: string;
     public transitionWrong: string;
+    public quizComponent: QuizComponent; //to call answer()
+    public startTime: number;
 
     constructor(question?: IQuestion, transitionRight?: string, transitionWrong?: string) {
       super('quiz', 'Quiz');

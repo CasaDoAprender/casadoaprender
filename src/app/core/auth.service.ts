@@ -9,7 +9,7 @@ import { State } from 'app/core/state';
 export class AuthService {
 
   private userState$: Observable<firebase.User>;
-  private user: firebase.User;
+  private user: firebase.User = null;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.userState$ = firebaseAuth.authState;
