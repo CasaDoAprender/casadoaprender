@@ -38,6 +38,8 @@ export class SvgComponent implements OnInit {
 
           state.behavior.onTouch(touchable.id);
         })
+      } else {
+        (touchable as HTMLElement).style.fill = '#00cc00';
       }
 
 
