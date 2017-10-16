@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { State } from 'app/core/state';
 import { Quiz } from 'app/core/quiz';
+import { Svg } from 'app/core/svg';
+import { UserEvaluatorService } from "app/core/user-evaluator.service";
 
 
 @Component({
@@ -30,7 +32,7 @@ export class PlayerComponent implements OnInit {
   menu: boolean;
   private waitingLoad: boolean = true;
 
-  constructor(private sectionServ: SectionService) {
+  constructor(private sectionServ: SectionService, private userEvaluator: UserEvaluatorService) {
   }
 
   ngOnInit() {
@@ -97,10 +99,28 @@ export class PlayerComponent implements OnInit {
       quiz.startTime = new Date().getTime();
     }
 
+    this.validateQuestions(state);
+
     this.menu = (state.label == 'menu' ? true : false);
     this.waitingLoad = false;
   }
 
+
+  private validateQuestions(state: State) {
+
+    this.userEvaluator.updateQuestions();
+
+    // this.sectionServ.current.getStateByLabel(touchable.id).page.gadgets.forEach(gadget => {
+    //   if(gadget.type == 'quiz') {
+    //     var quiz = gadget as Quiz;
+    //     this.userEvaluator.getUserQuestionsKeys().then(keys => {
+    //       if(keys.find(key => key == quiz.selectedQuestion.id)) {
+    //         console.log(quiz.selectedQuestion.pergunta);
+    //       }
+    //     });
+    //   }
+    // });
+  }
 
   run() {
     if (this.section) {

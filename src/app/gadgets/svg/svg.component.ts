@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 import { Gadget } from 'app/core/gadget';
 import { Svg } from 'app/core/svg';
 import { SectionService } from "app/core/section.service";
+import { UserEvaluatorService } from "app/core/user-evaluator.service";
 
 @Component({
   selector: 'app-svg',
@@ -12,7 +13,7 @@ export class SvgComponent implements OnInit {
   @Input() gadget: Svg;
   img: any = 'assets/server/loading.svg';
 
-  constructor(private renderer: Renderer2, private sectionServ: SectionService) { }
+  constructor(private renderer: Renderer2, private sectionServ: SectionService, private userEvaluator: UserEvaluatorService) { }
 
   ngOnInit() {
   }
@@ -26,14 +27,20 @@ export class SvgComponent implements OnInit {
     const touchables = svgElm.getElementsByClassName('touchable');
     for(let i = 0; i < touchables.length; i++) {
       let touchable = touchables[i];
-      this.renderer.listen(touchable, 'click', (evt) => {
-        const state = this.sectionServ.currentState;
-        console.log(state);
-        console.log(touchable.id);
+
+      const state = this.sectionServ.currentState;
+      let edge = state.outedges.find(edge => edge.label == touchable.id);
+      if(edge && this.userEvaluator.answeredQuestionsStates.indexOf(edge.to) === -1) {
+        this.renderer.listen(touchable, 'click', (evt) => {
+          console.log(state);
+          console.log(touchable.id);
 
 
-        state.behavior.onTouch(touchable.id);
-      })
+          state.behavior.onTouch(touchable.id);
+        })
+      }
+
+
     }
   }
 

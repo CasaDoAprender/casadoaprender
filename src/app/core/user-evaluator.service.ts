@@ -2,11 +2,16 @@ import { Injectable } from '@angular/core';
 import { FirebaseObjectObservable, AngularFireDatabase } from "angularfire2/database";
 
 import { AuthService } from 'app/core/auth.service';
+import { SectionService } from "app/core/section.service";
+import { Quiz } from "app/core/quiz";
+import { State } from "app/core/state";
 
 @Injectable()
 export class UserEvaluatorService {
 
-  constructor(private db: AngularFireDatabase, private authService: AuthService) { }
+  answeredQuestionsStates: string[] =[];
+
+  constructor(private db: AngularFireDatabase, private authService: AuthService, private sectionService: SectionService) { }
 
 
   answer(questionId, data) {
@@ -35,8 +40,68 @@ export class UserEvaluatorService {
   }
 
 
-  getScore(questionId, rightAnswer) {
-    var ref = this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + questionId);
-    ref.child("helpUsed").once("value").then();
+  getScore() {
+
+    if(this.authService.getUser() != null) {
+
+      var score: number = 0;
+
+      return this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions").once("value").then(questions => {
+          questions.forEach(question => {
+
+            if(question.val().rightAnswer) {
+              score += 100;
+              if(!question.val().helpUsed) {
+                score += 25;
+              }
+            }
+
+          });
+          return score;
+      });
+    }
+
+  }
+
+  getUserRightQuestionsKeys() {
+
+    if(this.authService.getUser() != null) {
+
+      var keys: any = [];
+
+      return this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions").once("value").then(questions => {
+        questions.forEach(question => {
+          if(question.val().rightAnswer) {
+            keys.push(question.key);
+          }
+        });
+        return keys;
+      });
+    }
+  }
+
+  updateQuestions() {
+
+    if(this.authService.getUser() != null) {
+
+        this.sectionService.current.states.forEach(state => {
+          state.page.gadgets.forEach(gadget => {
+
+            if(gadget.type == 'quiz') {
+              var quiz = gadget as Quiz;
+              this.getUserRightQuestionsKeys().then(keys => {
+
+                if(keys.indexOf(quiz.selectedQuestion.id) !== -1 && this.answeredQuestionsStates.indexOf(state.label) === -1) {
+                  this.answeredQuestionsStates.push(state.label);
+                }
+
+              });
+            }
+
+          });
+        });
+
+      }
+
   }
 }
