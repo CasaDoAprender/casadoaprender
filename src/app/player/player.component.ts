@@ -5,6 +5,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 // import { StateService } from 'app/core/state.service';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { State } from 'app/core/state';
+import { Quiz } from 'app/core/quiz';
+import { Svg } from 'app/core/svg';
+import { UserEvaluatorService } from "app/core/user-evaluator.service";
 
 
 @Component({
@@ -26,7 +29,10 @@ export class PlayerComponent implements OnInit {
   interventionState: Readonly<State>;
   private subscription: Subscription;  // to listen to state transitions (onNext())
 
-  constructor(private sectionServ: SectionService) {
+  menu: boolean;
+  private waitingLoad: boolean = true;
+
+  constructor(private sectionServ: SectionService, private userEvaluator: UserEvaluatorService) {
   }
 
   ngOnInit() {
@@ -41,6 +47,13 @@ export class PlayerComponent implements OnInit {
     console.log(this.currentState);
 
     if (this.currentState && this.currentState.behavior.onNext) {
+
+      var quiz = this.currentState.page.gadgets.find(gadget => gadget.type == 'quiz') as Quiz;
+      if(quiz) {
+        quiz.quizComponent.answer();
+        console.log("answered");
+      }
+
       this.currentState.behavior.onNext();
     }
   }
@@ -80,8 +93,34 @@ export class PlayerComponent implements OnInit {
       console.log('book finished');
 
     }
+
+    var quiz = state.page.gadgets.find(gadget => gadget.type == 'quiz') as Quiz;
+    if(quiz) {
+      quiz.startTime = new Date().getTime();
+    }
+
+    this.validateQuestions(state);
+
+    this.menu = (state.label == 'menu' ? true : false);
+    this.waitingLoad = false;
   }
 
+
+  private validateQuestions(state: State) {
+
+    this.userEvaluator.updateQuestions();
+
+    // this.sectionServ.current.getStateByLabel(touchable.id).page.gadgets.forEach(gadget => {
+    //   if(gadget.type == 'quiz') {
+    //     var quiz = gadget as Quiz;
+    //     this.userEvaluator.getUserQuestionsKeys().then(keys => {
+    //       if(keys.find(key => key == quiz.selectedQuestion.id)) {
+    //         console.log(quiz.selectedQuestion.pergunta);
+    //       }
+    //     });
+    //   }
+    // });
+  }
 
   run() {
     if (this.section) {
