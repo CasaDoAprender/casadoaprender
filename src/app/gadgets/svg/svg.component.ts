@@ -3,6 +3,7 @@ import { Gadget } from 'app/core/gadget';
 import { Svg } from 'app/core/svg';
 import { SectionService } from "app/core/section.service";
 import { UserEvaluatorService } from "app/core/user-evaluator.service";
+import { State } from 'app/core/state';
 
 @Component({
   selector: 'app-svg',
@@ -23,6 +24,9 @@ export class SvgComponent implements OnInit {
   }
 
   prepare(svgElm: SVGElement) {
+
+  
+
     this.gadget.setReady();
     const touchables = svgElm.getElementsByClassName('touchable');
     for(let i = 0; i < touchables.length; i++) {
