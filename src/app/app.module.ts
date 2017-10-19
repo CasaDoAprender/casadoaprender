@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { StateService } from './core/state.service';
 import { SectionService } from "app/core/section.service";
 import { AuthService } from './core/auth.service';
+import { UserEvaluatorService } from './core/user-evaluator.service';
 import { PlayerComponent } from "app/player/player.component";
 import { GadgetsModule } from "app/gadgets/gadgets.module";
 import { InterventionComponent } from "app/player/intervention/intervention.component";
 import { NextButtonComponent } from "app/player/next-button/next-button.component";
 import { SharedModule } from "app/shared/shared.module";
+import { OpcoesMenuComponent } from 'app/player/opcoes-menu/opcoes-menu.component';
 
 import 'hammerjs';
 import { GadgetComponent } from "app/player/gadget/gadget.component";
@@ -27,7 +29,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
     PlayerComponent,
     GadgetComponent,
     InterventionComponent,
-    NextButtonComponent
+    NextButtonComponent,
+    OpcoesMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
   providers: [
     SectionService,
     StateService,
-    AuthService
+    AuthService,
+    UserEvaluatorService
   ],
   bootstrap: [AppComponent]
 })

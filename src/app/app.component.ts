@@ -10,12 +10,22 @@ import { SectionService } from "app/core/section.service";
 export class AppComponent {
   title = 'app works!';
 
+  menuCallState: string;
+
   constructor(private sectionService: SectionService, location: PlatformLocation) {
     // this.sectionService.load('casa.json');
     this.sectionService.loadFromFirebase();
     location.onPopState(() => {
 
-        console.log('pressed back!');
+      if(sectionService.currentState.label != 'menu') {
+        this.menuCallState = sectionService.currentState.label;
+        sectionService.currentState.callMenu();
+        sectionService.currentState.menuCallState = this.menuCallState;
+        location.pushState(null, null, '');
+      } else {
+        location.back();
+      }
+
     });
   }
 
