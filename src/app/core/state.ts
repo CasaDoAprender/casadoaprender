@@ -35,10 +35,11 @@ export interface IState {
 
 export class State implements IState {
   private static _idCount = 0;
-  private static _states: State[] = [];  // array of existing states
+  public static _states: State[] = [];  // array of existing states
 
   static globals: Object = {
     // name: 'André'
+
   };   // set of global variables
 
   /** Observable to emit events when the state needs to go to the next state */

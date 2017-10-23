@@ -13,7 +13,7 @@ export class AppComponent {
   menuCallState: string;
 
   constructor(private sectionService: SectionService, location: PlatformLocation) {
-    // this.sectionService.load('casa.json');
+    //this.sectionService.load('casa.json');
     this.sectionService.loadFromFirebase();
     location.onPopState(() => {
 

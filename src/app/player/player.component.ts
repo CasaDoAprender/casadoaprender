@@ -8,13 +8,15 @@ import { State } from 'app/core/state';
 import { Quiz } from 'app/core/quiz';
 import { Svg } from 'app/core/svg';
 import { UserEvaluatorService } from "app/core/user-evaluator.service";
-
+import { AuthService } from 'app/core/auth.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
+
+
 export class PlayerComponent implements OnInit {
   @ViewChild('scroll') scrollRef: ElementRef;
   @ViewChild(InterventionComponent) intervention: InterventionComponent;
@@ -32,7 +34,7 @@ export class PlayerComponent implements OnInit {
   menu: boolean;
   private waitingLoad: boolean = true;
 
-  constructor(private sectionServ: SectionService, private userEvaluator: UserEvaluatorService) {
+  constructor(private sectionServ: SectionService, private userEvaluator: UserEvaluatorService,private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -59,6 +61,7 @@ export class PlayerComponent implements OnInit {
   }
 
   private updateInternalState(state: State) {
+
     if (state) {
       this.sectionServ.currentState = state;
       this.currentState = state; // save the reference to call 'onNext()'
@@ -71,9 +74,17 @@ export class PlayerComponent implements OnInit {
 
       console.log(State.globals);
 
-
       // set up the correct var to in the player
       if (state.type == 'content') {
+        if(this.authService.getUser() != null) {
+          this.userEvaluator.getScore().then(score=> {
+           let s="nome: "+State.globals['user']+", score: "+score;
+
+          document.querySelector('#msg').innerHTML=s;
+
+          });
+
+        }
         this.contentState = state;
         this.intervention.hide();
       }
@@ -83,6 +94,7 @@ export class PlayerComponent implements OnInit {
       }
       // remove the event subscription from the previous event and creates a new one with the new event.
       if (this.subscription) {
+
         this.subscription.unsubscribe();
       }
       this.subscription = state.next$.subscribe(s => this.updateInternalState(s));

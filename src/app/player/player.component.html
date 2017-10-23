@@ -1,5 +1,9 @@
 <div id="svg-container" *ngIf="waitingLoad">
-  <img src="assets/server/loading.svg" style="display: block; margin: auto"/>
+  <img src="assets/server/loading.svg" style="display: block; margin: "/>
+</div>
+
+<div id="msg">
+
 </div>
 
 <div class="full-container">
@@ -28,8 +32,6 @@
     <div *ngIf="menu">
       <opcoes-menu></opcoes-menu>
     </div>
-
-
       <app-next-button *ngIf="!waitingLoad" (onNext)="nextState()"></app-next-button>
   </div>
 </div>

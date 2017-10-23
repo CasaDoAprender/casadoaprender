@@ -56,10 +56,16 @@ export class UserEvaluatorService {
               }
             }
 
+
           });
+
           return score;
       });
+
+
+
     }
+
 
   }
 
