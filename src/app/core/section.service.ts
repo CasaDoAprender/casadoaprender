@@ -96,6 +96,7 @@ export class SectionService {
 
   selectState(stateLabel: string) {
     let state = this._currentSection.getStateByLabel(stateLabel);
+    
     if (state) {
       this.setCurrentState(state);
     }
