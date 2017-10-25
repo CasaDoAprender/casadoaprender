@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   @Input() gadget: Login;
   public isUserLoggedIn: boolean = false;
+  private welcome: string = "";
 
   constructor(private auth: AuthService, private sectionService: SectionService) {
   }
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
         user => {
           if(user) {
             this.gadget.isUserLoggedIn = true;
+            this.welcome = "Bem vindo(a) " + user.displayName.substring(0, 20) + "!";
           } else {
             this.gadget.isUserLoggedIn = false;
           }
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
 
   logoutGoogle() {
     this.auth.logout();
+    this.sectionService.currentState.goToPage("inicio");
   }
 
 }

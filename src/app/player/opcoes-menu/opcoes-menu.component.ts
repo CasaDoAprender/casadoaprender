@@ -3,6 +3,7 @@ import { PlatformLocation } from '@angular/common'
 import { trigger, state, animate, transition, style } from '@angular/animations';
 
 import { SectionService } from 'app/core/section.service';
+import { AuthService } from 'app/core/auth.service';
 
 @Component({
   selector: 'opcoes-menu',
@@ -24,7 +25,7 @@ export class OpcoesMenuComponent implements OnInit {
   private collapsed = false;
   @Input() private visible: string = 'hidden';
 
-  constructor(private location: PlatformLocation, private sectionService: SectionService) { }
+  constructor(private location: PlatformLocation, private sectionService: SectionService, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -43,6 +44,11 @@ export class OpcoesMenuComponent implements OnInit {
 
   callCredits() {
     this.sectionService.currentState.goToPage("creditos");
+  }
+
+  logout() {
+    this.authService.logout();
+    this.sectionService.currentState.goToPage("inicio");
   }
 
   get isVisible() { return this.visible != 'hidden'; }

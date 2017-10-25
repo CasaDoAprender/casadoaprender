@@ -1,7 +1,6 @@
 <div *ngIf="gadget.isGoogleLoginOn" class="container">
-  <div *ngIf="gadget.isUserLoggedIn">
-    Bem Vindo!!!
-    <button md-button color="primary" (click)="logoutGoogle()">Logout</button>
+  <div *ngIf="gadget.isUserLoggedIn" [innerHTML]="welcome">
+    <!--button md-button color="primary" (click)="logoutGoogle()">Logout</button-->
   </div>
   <div *ngIf="!gadget.isUserLoggedIn">
     Faça Login para continuar <br><br>

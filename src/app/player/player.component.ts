@@ -33,6 +33,8 @@ export class PlayerComponent implements OnInit {
 
   menu: boolean;
   private waitingLoad: boolean = true;
+  private isUserLoggedIn: boolean = false;
+  private userInfo = "";
 
   constructor(private sectionServ: SectionService, private userEvaluator: UserEvaluatorService,private authService: AuthService) {
   }
@@ -77,13 +79,15 @@ export class PlayerComponent implements OnInit {
       // set up the correct var to in the player
       if (state.type == 'content') {
         if(this.authService.getUser() != null) {
-          this.userEvaluator.getScore().then(score=> {
-           let s="nome: "+State.globals['user']+", score: "+score;
 
-          document.querySelector('#msg').innerHTML=s;
+          this.isUserLoggedIn = true;
+          this.userEvaluator.getScore().then(score=> {
+           this.userInfo = this.authService.getUser().displayName.substring(0, 20) + " - " + score;
 
           });
 
+        } else {
+          this.isUserLoggedIn = false;
         }
         this.contentState = state;
         this.intervention.hide();

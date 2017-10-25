@@ -1,10 +1,8 @@
 <div id="svg-container" *ngIf="waitingLoad">
-  <img src="assets/server/loading.svg" style="display: block; margin: "/>
+  <img src="assets/server/loading.svg" style="display: block; margin: auto "/>
 </div>
 
-<div id="msg">
 
-</div>
 
 <div class="full-container">
   <div *ngIf="error">
@@ -13,6 +11,10 @@
   <div class="scroll">
 
     <div class="container">
+
+      <div *ngIf="isUserLoggedIn" id="msg">
+        <div [innerHTML]="userInfo"></div>
+      </div>
 
       <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
         <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
