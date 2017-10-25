@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 
 import { environment } from '../environments/environment';
 
@@ -40,7 +41,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    Ng2DeviceDetectorModule.forRoot()
   ],
   providers: [
     SectionService,

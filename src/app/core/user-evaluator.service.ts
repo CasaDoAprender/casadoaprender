@@ -50,9 +50,9 @@ export class UserEvaluatorService {
           questions.forEach(question => {
 
             if(question.val().rightAnswer) {
-              score += 100;
+              score += 7;
               if(!question.val().helpUsed) {
-                score += 25;
+                score += 3;
               }
             }
 

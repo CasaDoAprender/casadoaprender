@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Ng2DeviceService } from 'ng2-device-detector';
 
 import { State } from 'app/core/state';
 
@@ -11,7 +12,7 @@ export class AuthService {
   private userState$: Observable<firebase.User>;
   private user: firebase.User = null;
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(private firebaseAuth: AngularFireAuth, private deviceService: Ng2DeviceService) {
     this.userState$ = firebaseAuth.authState;
     //this.firebaseAuth.auth.onAuthStateChanged(_ => '');
   }
@@ -56,6 +57,7 @@ export class AuthService {
         this.user = user;
         State.globals['user'] = this.user.displayName;
         firebase.database().ref('/users/' + this.user.uid).update({nome: this.user.displayName});
+        firebase.database().ref('/users/' + this.user.uid + '/deviceInfo').update({os: this.deviceService.os, browser: this.deviceService.browser, device: this.deviceService.device});
       } else {
         State.globals['user'] = '';
         this.user = null;
