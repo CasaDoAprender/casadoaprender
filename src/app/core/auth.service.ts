@@ -57,7 +57,7 @@ export class AuthService {
         this.user = user;
         State.globals['user'] = this.user.displayName;
         firebase.database().ref('/users/' + this.user.uid).update({nome: this.user.displayName});
-        firebase.database().ref('/users/' + this.user.uid + '/deviceInfo').update({os: this.deviceService.os, browser: this.deviceService.browser, device: this.deviceService.device});
+        firebase.database().ref('/users/' + this.user.uid + '/deviceInfo/').update(this.deviceService.getDeviceInfo());
       } else {
         State.globals['user'] = '';
         this.user = null;

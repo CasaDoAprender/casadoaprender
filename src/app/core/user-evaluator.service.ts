@@ -36,7 +36,9 @@ export class UserEvaluatorService {
 
 
   setHelpTrue(questionId) {
-    this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + questionId).update({helpUsed: true});
+    if(this.authService.getUser() != null) {
+      this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions/" + questionId).update({helpUsed: true});
+    }
   }
 
 
