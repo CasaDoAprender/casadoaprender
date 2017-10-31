@@ -44,12 +44,13 @@ export class QuizComponent implements OnInit {
   }
 
   answer() {
-    var data = {
-      rightAnswer: this.rightAnswer,
-      time: (new Date().getTime() - this.gadget.startTime)
+    if(this.rightAnswer != undefined) {
+      var data = {
+        rightAnswer: this.rightAnswer,
+        time: (new Date().getTime() - this.gadget.startTime)
+      }
+      this.userEvaluator.answer(this.gadget.selectedQuestion.id, data);
     }
-
-    this.userEvaluator.answer(this.gadget.selectedQuestion.id, data);
   }
 
 }

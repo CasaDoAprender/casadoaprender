@@ -39,7 +39,7 @@ export class OpcoesMenuComponent implements OnInit {
   }
 
   summary() {
-    this.sectionService.currentState.goToPage("summary");
+      this.sectionService.currentState.goToPage("summary");
   }
 
   callCredits() {
