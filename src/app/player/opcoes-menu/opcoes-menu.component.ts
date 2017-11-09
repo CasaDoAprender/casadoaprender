@@ -35,6 +35,7 @@ export class OpcoesMenuComponent implements OnInit {
   }
 
   exit() {
+    this.authService.logout();
     this.location.back();
   }
 

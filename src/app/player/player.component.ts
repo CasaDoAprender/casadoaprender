@@ -85,7 +85,7 @@ export class PlayerComponent implements OnInit {
 
             this.isUserLoggedIn = true;
             this.userEvaluator.getScore().then(score=> {
-              this.userInfo = this.authService.getUser().displayName.substring(0, 20) + " - " + score;
+              this.userInfo = this.authService.getUser().displayName.substring(0, 20) + " - ( " + score + " )";
             });
 
           } else {

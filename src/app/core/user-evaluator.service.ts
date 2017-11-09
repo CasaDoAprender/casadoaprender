@@ -9,7 +9,8 @@ import { State } from "app/core/state";
 @Injectable()
 export class UserEvaluatorService {
 
-  answeredQuestionsStates: string[] =[];
+  answeredRightQuestionStates: string[] =[];
+  answeredWrongQuestionStates: string[] =[];
 
   constructor(private db: AngularFireDatabase, private authService: AuthService, private sectionService: SectionService) { }
 
@@ -88,28 +89,46 @@ export class UserEvaluatorService {
     }
   }
 
+  getUserQuestions() {
+
+    if(this.authService.getUser() != null) {
+
+      var array: any = [];
+
+      return this.db.database.ref('/users/' + this.authService.getUser().uid + "/questions").once("value").then(questions => {
+        questions.forEach(question => {
+            array.push({"key": question.key, "rightAnswer": question.val().rightAnswer});
+        });
+        return array;
+      });
+    }
+  }
+
   updateQuestions() {
 
     if(this.authService.getUser() != null) {
+
+      this.getUserQuestions().then(q => {
+        this.answeredRightQuestionStates = [];
+        this.answeredWrongQuestionStates = [];
 
         this.sectionService.current.states.forEach(state => {
           state.page.gadgets.forEach(gadget => {
 
             if(gadget.type == 'quiz') {
               var quiz = gadget as Quiz;
-              this.getUserRightQuestionsKeys().then(keys => {
 
-                if(keys.indexOf(quiz.selectedQuestion.id) !== -1 && this.answeredQuestionsStates.indexOf(state.label) === -1) {
-                  this.answeredQuestionsStates.push(state.label);
+                let question = q.find(question => question.key == quiz.selectedQuestion.id);
+                if(question) {
+                   question.rightAnswer? this.answeredRightQuestionStates.push(state.label) : this.answeredWrongQuestionStates.push(state.label);
                 }
 
-              });
-            }
-
+              }
+            });
           });
         });
 
       }
-
+      
   }
 }
