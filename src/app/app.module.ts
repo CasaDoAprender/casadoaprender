@@ -23,6 +23,7 @@ import { OpcoesMenuComponent } from 'app/player/opcoes-menu/opcoes-menu.componen
 
 import 'hammerjs';
 import { GadgetComponent } from "app/player/gadget/gadget.component";
+import { MessageDialog } from './ui/message-dialog/message-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
     GadgetComponent,
     InterventionComponent,
     NextButtonComponent,
-    OpcoesMenuComponent
+    OpcoesMenuComponent,
+    MessageDialog
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { GadgetComponent } from "app/player/gadget/gadget.component";
     AngularFireAuthModule,
     Ng2DeviceDetectorModule.forRoot()
   ],
+  entryComponents: [ MessageDialog ],
   providers: [
     SectionService,
     StateService,

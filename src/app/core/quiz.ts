@@ -84,4 +84,8 @@ export class Quiz extends Gadget {
       console.log("value: " + this.value);
       return this.value != undefined && this.value.length > 0;
     }
+
+    update() {
+      this.startTime = new Date().getTime();
+    }
   }

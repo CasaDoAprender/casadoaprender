@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MdMenuTrigger, MdMenu, MdDialog } from "@angular/material";
 
 import { SectionService } from 'app/core/section.service';
 import { Gadget } from 'app/core/gadget';
 import { Quiz } from 'app/core/quiz';
 import { UserEvaluatorService } from 'app/core/user-evaluator.service';
+import { MessageDialog } from "app/ui/message-dialog/message-dialog.component";
 
 @Component({
   selector: 'app-quiz',
@@ -16,7 +18,7 @@ export class QuizComponent implements OnInit {
   public isHelpOn: boolean;
   private rightAnswer: boolean;
 
-  constructor(private userEvaluator: UserEvaluatorService) {
+  constructor(private userEvaluator: UserEvaluatorService, public dialog: MdDialog) {
   }
 
   ngOnInit() {
@@ -50,6 +52,9 @@ export class QuizComponent implements OnInit {
         time: (new Date().getTime() - this.gadget.startTime)
       }
       this.userEvaluator.answer(this.gadget.selectedQuestion.id, data);
+    } else {
+      let messageDlg = this.dialog.open(MessageDialog);
+      messageDlg.componentInstance.message = "Marque uma questão";
     }
   }
 

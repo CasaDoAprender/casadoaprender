@@ -24,16 +24,16 @@
 
 
 
-    <app-intervention>
-      <div class="gadget-items" *ngFor="let gadget of interventionState?.page.gadgets; index as i">
-        <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
-        <!--<app-controls [gadget]="gadget"></app-controls>-->
-      </div>
-    </app-intervention>
+      <app-intervention>
+        <div class="gadget-items" *ngFor="let gadget of interventionState?.page.gadgets; index as i">
+          <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
+          <!--<app-controls [gadget]="gadget"></app-controls>-->
+        </div>
+      </app-intervention>
 
-    <div *ngIf="menu">
-      <opcoes-menu></opcoes-menu>
-    </div>
       <app-next-button *ngIf="!waitingLoad" (onNext)="nextState()"></app-next-button>
+      <div *ngIf="menu">
+        <opcoes-menu></opcoes-menu>
+      </div>
   </div>
 </div>

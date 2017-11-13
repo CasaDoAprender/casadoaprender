@@ -105,11 +105,6 @@ export class PlayerComponent implements OnInit {
         }
         this.subscription = state.next$.subscribe(s => this.updateInternalState(s));
 
-        var quiz = state.page.gadgets.find(gadget => gadget.type == 'quiz') as Quiz;
-        if(quiz) {
-          quiz.startTime = new Date().getTime();
-        }
-
         this.validateQuestions();
 
         this.menu = (state.label == 'menu' ? true : false);
