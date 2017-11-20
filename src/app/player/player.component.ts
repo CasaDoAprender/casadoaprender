@@ -68,8 +68,10 @@ export class PlayerComponent implements OnInit {
 
     if (state) {
       if(this.checkLogin(state)) {
+        let previousState = this.sectionServ.currentState ? this.sectionServ.currentState.label : '';
         this.sectionServ.currentState = state;
         this.currentState = state; // save the reference to call 'onNext()'
+        this.sectionServ.currentState.previousState = previousState;
 
         // call behavior and update page elements
         if (state.behavior.onEnter) {

@@ -31,7 +31,7 @@ export class OpcoesMenuComponent implements OnInit {
   }
 
   continue() {
-    this.sectionService.currentState.goToPage(this.sectionService.currentState.menuCallState);
+    this.sectionService.currentState.goToPage(this.sectionService.currentState.previousState);
   }
 
   exit() {

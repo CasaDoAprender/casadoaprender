@@ -24,6 +24,7 @@ import { OpcoesMenuComponent } from 'app/player/opcoes-menu/opcoes-menu.componen
 import 'hammerjs';
 import { GadgetComponent } from "app/player/gadget/gadget.component";
 import { MessageDialog } from './ui/message-dialog/message-dialog.component';
+import { MenuButton } from './player/menu-button/menu-button.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MessageDialog } from './ui/message-dialog/message-dialog.component';
     InterventionComponent,
     NextButtonComponent,
     OpcoesMenuComponent,
-    MessageDialog
+    MessageDialog,
+    MenuButton
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.menu-button {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  float: left;
+}

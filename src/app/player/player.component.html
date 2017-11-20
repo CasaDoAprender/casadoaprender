@@ -10,11 +10,13 @@
   </div>
   <div class="scroll">
 
+    <menu-button></menu-button>
+    <div id="msg-box">
+      <div id="msg" [innerHTML]="userInfo"></div>
+    </div>
+
     <div class="container">
 
-      <div *ngIf="isUserLoggedIn" id="msg">
-        <div [innerHTML]="userInfo"></div>
-      </div>
 
       <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
         <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>

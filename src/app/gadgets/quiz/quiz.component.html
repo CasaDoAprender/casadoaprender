@@ -4,7 +4,7 @@
       </div>
   <div class="row">
     <table>
-      <md-radio-group>
+      <md-radio-group [(ngModel)]="gadget.radioValue">
       <tr>
         <td>
           <md-radio-button value="1" (click)=setGadgetValue(1)></md-radio-button>

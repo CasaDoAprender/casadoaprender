@@ -18,11 +18,11 @@ export class AppComponent {
     location.onPopState(() => {
 
       if(sectionService.currentState.label != 'menu') {
-        this.menuCallState = sectionService.currentState.label;
         sectionService.currentState.callMenu();
-        sectionService.currentState.menuCallState = this.menuCallState;
         location.pushState(null, null, '');
+        console.log('not exit');
       } else {
+        console.log('exit');
         location.back();
       }
 

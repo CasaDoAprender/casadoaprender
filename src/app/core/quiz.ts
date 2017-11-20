@@ -20,10 +20,12 @@ export class Quiz extends Gadget {
     public questions: IQuestion[];
     public selectedQuestion: IQuestion;
     public value: string;
+    public radioValue: string;
     public transitionRight: string;
     public transitionWrong: string;
     public quizComponent: QuizComponent; //to call answer()
     public startTime: number;
+    public rightAnswer: boolean;
 
     constructor(question?: IQuestion, transitionRight?: string, transitionWrong?: string) {
       super('quiz', 'Quiz');
@@ -87,5 +89,7 @@ export class Quiz extends Gadget {
 
     update() {
       this.startTime = new Date().getTime();
+      this.radioValue = "";
+      this.rightAnswer = this.value = undefined;
     }
   }

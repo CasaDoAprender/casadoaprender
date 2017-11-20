@@ -16,7 +16,6 @@ export class QuizComponent implements OnInit {
 
   @Input() gadget: Quiz;
   public isHelpOn: boolean;
-  private rightAnswer: boolean;
 
   constructor(private userEvaluator: UserEvaluatorService, public dialog: MdDialog) {
   }
@@ -33,10 +32,10 @@ export class QuizComponent implements OnInit {
   setGadgetValue(option: string) {
     if(option == this.gadget.selectedQuestion.resp_certa) {
        this.gadget.value = this.gadget.transitionRight;
-       this.rightAnswer = true;
+       this.gadget.rightAnswer = true;
     } else {
        this.gadget.value = this.gadget.transitionWrong;
-       this.rightAnswer = false;
+       this.gadget.rightAnswer = false;
     }
   }
 
@@ -46,9 +45,9 @@ export class QuizComponent implements OnInit {
   }
 
   answer() {
-    if(this.rightAnswer != undefined) {
+    if(this.gadget.rightAnswer != undefined) {
       var data = {
-        rightAnswer: this.rightAnswer,
+        rightAnswer: this.gadget.rightAnswer,
         time: (new Date().getTime() - this.gadget.startTime)
       }
       this.userEvaluator.answer(this.gadget.selectedQuestion.id, data);

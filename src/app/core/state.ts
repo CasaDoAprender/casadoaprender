@@ -59,7 +59,7 @@ export class State implements IState {
     onTouch: doNothing
   };
 
-  menuCallState: string;
+  previousState: string;
 
   constructor(private section: Section, state?: Partial<IState>) {
     if (state) {
@@ -173,7 +173,9 @@ export class State implements IState {
   }
 
   goToPage(pageName) {
-    this._next.next(this.section.getStateByLabel(pageName));
+    if(pageName) {
+      pageName === 'tryAgain' ? this._next.next(this.section.getStateByLabel(this.previousState)) : this._next.next(this.section.getStateByLabel(pageName));
+    }
   }
   // static getStateByLabel(label: string) {
   //   return State._states.find(s => s.label == label);
