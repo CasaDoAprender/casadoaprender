@@ -21,7 +21,7 @@
        x="117.51406"
        height="42.276398"
        width="50.874985"
-       id="quarto2"
+       id="quarto 1"
        style="opacity:0;fill:#782121" />
     <rect
        class="touchable"
@@ -37,7 +37,7 @@
        x="117.87233"
        height="44.426048"
        width="50.516712"
-       id="quarto1"
+       id="quarto 2"
        style="opacity:0;fill:#782121" />
     <rect
        class="touchable"
@@ -65,6 +65,59 @@
        style="opacity:0;fill:#782121" />
 
 
+     <g
+      id="check-sala"
+      fill="#00cc00"
+      transform="translate(41.000000, 91.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
+
+     <g
+      id="check-cozinha"
+      fill="#00cc00"
+      transform="translate(41.000000, 158.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
+
+     <g
+      id="check-quarto1"
+      fill="#00cc00"
+      transform="translate(98.000000, 91.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
+
+     <g
+      id="check-banheiro"
+      fill="#00cc00"
+      transform="translate(98.000000, 134.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
+
+     <g
+      id="check-quarto2"
+      fill="#00cc00"
+      transform="translate(98.000000, 158.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
+
+     <g
+      id="check-aservico"
+      fill="#00cc00"
+      transform="translate(98.000000, 202.500000) scale(0.5)">
+      <path
+        d="M47,51.2 L42.8,47 L41.6,48.6 L47,54 L59,42 L57.6,40.6 L47,51.2 Z"
+        id="Shape"/>
+     </g>
 
 
 </svg>

@@ -27,6 +27,15 @@ export class SvgComponent implements OnInit {
 
     this.gadget.setReady();
     const touchables = svgElm.getElementsByClassName('touchable');
+    this.updateTouchables(touchables);
+    this.updateChecks(touchables);
+
+  }
+
+
+
+
+  private updateTouchables(touchables) {
     for(let i = 0; i < touchables.length; i++) {
       let touchable = touchables[i];
 
@@ -49,8 +58,50 @@ export class SvgComponent implements OnInit {
         }
       }
 
-
     }
+  }
+
+
+  private updateChecks(touchables) {
+
+    if(this.sectionServ.currentState.label == "capa") {
+
+      for(let i = 0; i < touchables.length; i++) {
+
+        let touchable = touchables[i];
+        let state = this.sectionServ.current.getStateByLabel(touchable.id);
+
+        if(state) {
+          state.outedges.forEach(edge => {
+            if(edge.to !== 'capa' && this.userEvaluator.answeredRightQuestionStates.indexOf(edge.to) === -1) {
+              switch(touchable.id) {
+                case "cozinha":
+                  document.getElementById('check-cozinha').style.fill = '#cccccc';
+                  break;
+                case "sala":
+                  document.getElementById('check-sala').style.fill = '#cccccc';
+                  break;
+                case "quarto 2":
+                  document.getElementById('check-quarto2').style.fill = '#cccccc';
+                  break;
+                case "banheiro":
+                  document.getElementById('check-banheiro').style.fill = '#cccccc';
+                  break;
+                case "quarto 1":
+                  document.getElementById('check-quarto1').style.fill = '#cccccc';
+                  break;
+                case "aservico":
+                  document.getElementById('check-aservico').style.fill = '#cccccc';
+                  break;
+                default:
+                  break;
+              }
+            }
+          });
+        }
+      }
+    }
+
   }
 
 }
