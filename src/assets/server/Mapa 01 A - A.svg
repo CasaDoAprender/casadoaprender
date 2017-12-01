@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.88 217.73" style="image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><defs><style type="text/css">  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.88 217.73" style="image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><defs><style type="text/css">
     .fil10 {fill:black}
     .fil20 {fill:#030303}
     .fil42 {fill:#060606}
@@ -159,7 +159,7 @@
     .fil1 {fill:#FDFDFD}
     .fil0 {fill:#FEFEFE}
     .fil52 {fill:white}
-   </style><style>  
+   </style><style>
 .touchable {
     fill-opacity:1;
 }
@@ -179,63 +179,63 @@
      cy="128.23798"
      cx="125.93153"
      id="chao"
-     style="    stroke-width:0.34421694;     fill:#ffb380;"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="76.573753"
      cx="86.722084"
      id="cama1"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="75.651176"
      cx="116.24449"
      id="cama2"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="96.870415"
      cx="165.14099"
      id="cortina"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="47.051342"
      cx="28.599836"
      id="armario"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="109.78647"
      cx="47.051342"
      id="computador"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="118.08965"
      cx="12.916055"
      id="parede"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="166.98615"
      cx="109.78647"
      id="mesa"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" /><ellipse
      ry="5.5354519"
      rx="6.9193153"
      cy="36.903015"
      cx="144.84433"
      id="criado"
-     style="clip-rule:evenodd;fill:#ffb380;fill-opacity:1;fill-rule:evenodd;stroke-width:0.34421694;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#ffb399;fill-opacity:1;stroke-width:0.47222221"
      class="touchable" />
 
 

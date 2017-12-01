@@ -90,6 +90,15 @@ export class PlayerComponent implements OnInit {
               this.userInfo = this.authService.getUser().displayName.substring(0, 20) + " - ( " + score + " )";
             });
 
+            if(state.label == "capa") {
+               this.userEvaluator.showInstructions().then(showInstructions => {
+                 if(showInstructions) {
+                   this.sectionServ.currentState.goToPage("instructions");
+                   this.userEvaluator.setShowInstructions(false);
+                 }
+               })
+            }
+
           } else {
             this.isUserLoggedIn = false;
           }

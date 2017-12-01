@@ -47,6 +47,10 @@ export class OpcoesMenuComponent implements OnInit {
     this.sectionService.currentState.goToPage("creditos");
   }
 
+  instructions() {
+    this.sectionService.currentState.goToPage("instructions");
+  }
+
   logout() {
     this.authService.logout();
     this.sectionService.currentState.goToPage("inicio");

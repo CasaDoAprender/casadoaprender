@@ -129,6 +129,19 @@ export class UserEvaluatorService {
         });
 
       }
-      
+  }
+
+  showInstructions() {
+    if(this.authService.getUser() != null) {
+      return this.db.database.ref('/users/' + this.authService.getUser().uid + '/showInstructions').once("value").then(showInstructions => {
+         return (showInstructions.val() != undefined ? showInstructions.val() : true) as boolean;
+       });
+    }
+  }
+
+  setShowInstructions(showInstructions) {
+    if(this.authService.getUser() != null) {
+      this.db.database.ref('/users/' + this.authService.getUser().uid).update({showInstructions: showInstructions});
+    }
   }
 }
