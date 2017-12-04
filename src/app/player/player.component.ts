@@ -60,6 +60,7 @@ export class PlayerComponent implements OnInit {
         quiz.quizComponent.answer();
       }
 
+      this.section.showNextButtonTip = false;
       this.currentState.behavior.onNext();
     }
   }

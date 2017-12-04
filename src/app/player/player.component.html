@@ -33,7 +33,11 @@
         </div>
       </app-intervention>
 
+
+      <span class="tooltipNextButton" *ngIf="section?.showNextButtonTip">Clique para continuar --></span>
       <app-next-button *ngIf="!waitingLoad" (onNext)="nextState()"></app-next-button>
+
+
       <div *ngIf="menu">
         <opcoes-menu></opcoes-menu>
       </div>

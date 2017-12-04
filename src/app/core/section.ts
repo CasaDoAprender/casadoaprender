@@ -17,6 +17,8 @@ export class Section implements ISection {
   initialState: number = 0;
   origin: OriginType = 'json';
 
+  showNextButtonTip: boolean = false;
+
   constructor(sectionData?: Partial<ISection>) {
     if (sectionData) {
       this.title = sectionData.title || 'default section';

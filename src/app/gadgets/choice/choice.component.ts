@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Choice } from "app/core/choice";
+import { SectionService } from "app/core/section.service";
 
 @Component({
   selector: 'app-choice',
@@ -10,7 +11,7 @@ export class ChoiceComponent implements OnInit {
   @Input() gadget: Choice;
   // answer: string;
 
-  constructor() {
+  constructor(private sectionService: SectionService) {
   }
 
   ngOnInit() {
@@ -18,6 +19,14 @@ export class ChoiceComponent implements OnInit {
 
   ngAfterViewInit() {
     this.gadget.setReady();
+  }
+
+  onClick() {
+
+    if(this.sectionService.currentState.label == "inicio") {
+      this.sectionService.current.showNextButtonTip = true;
+    }
+
   }
 
 }

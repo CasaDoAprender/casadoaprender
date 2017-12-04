@@ -175,6 +175,7 @@ export class State implements IState {
   goToPage(pageName) {
     if(pageName) {
       pageName === 'tryAgain' ? this._next.next(this.section.getStateByLabel(this.previousState)) : this._next.next(this.section.getStateByLabel(pageName));
+      this.section.showNextButtonTip = false;
     }
   }
   // static getStateByLabel(label: string) {

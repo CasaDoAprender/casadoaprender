@@ -33,3 +33,11 @@
   align-items: center;
   height: 100%;
 }
+
+.tooltipNextButton {
+	position: absolute;
+	font-size: small;
+	color: red;
+  bottom: 30px;
+  right: 70px;
+}

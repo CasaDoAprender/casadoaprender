@@ -6,7 +6,7 @@
           {{option.value}}
         </td-->
         <td>
-          <md-radio-button [value]="option.value"></md-radio-button>
+          <md-radio-button (click)="onClick()" [value]="option.value"></md-radio-button>
         </td>
         <td class="mat-radio-button">
           {{option.text}}
