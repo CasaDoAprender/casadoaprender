@@ -35,6 +35,7 @@ export class PlayerComponent implements OnInit {
   private waitingLoad: boolean = true;
   private isUserLoggedIn: boolean = false;
   private userInfo = "";
+  private placesToVisit: string[] = ['sala', 'cozinha', 'banheiro', 'aservico', 'quarto 1', 'quarto 2'];
 
   //TODO config page: add this page to exceptions
   private loginFreeStates: string[] = ['inicio', 'aluno', 'facebook', 'menu', 'summary', 'creditos'];
@@ -98,6 +99,8 @@ export class PlayerComponent implements OnInit {
                    this.userEvaluator.setShowInstructions(false);
                  }
                })
+            } else if(this.placesToVisit.indexOf(state.label) != -1) {
+              this.userEvaluator.addVisitedPlace(state.label);
             }
 
           } else {

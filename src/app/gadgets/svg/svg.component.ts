@@ -72,37 +72,54 @@ export class SvgComponent implements OnInit {
         let state = this.sectionServ.current.getStateByLabel(touchable.id);
 
         if(state) {
-          state.outedges.forEach(edge => {
-            if(edge.to !== 'capa' && this.userEvaluator.answeredRightQuestionStates.indexOf(edge.to) === -1) {
-              let color = '#cccccc';
-              switch(touchable.id) {
-                case "cozinha":
-                  document.getElementById('check-cozinha').style.fill = color;
-                  break;
-                case "sala":
-                  document.getElementById('check-sala').style.fill = color;
-                  break;
-                case "quarto 2":
-                  document.getElementById('check-quarto2').style.fill = color;
-                  break;
-                case "banheiro":
-                  document.getElementById('check-banheiro').style.fill = color;
-                  break;
-                case "quarto 1":
-                  document.getElementById('check-quarto1').style.fill = color;
-                  break;
-                case "aservico":
-                  document.getElementById('check-aservico').style.fill = color;
-                  break;
-                default:
-                  break;
-              }
-            }
+
+          this.userEvaluator.checkVisitedPlace(state.label).then(checkVisitedPlace => {
+            this.updateCheckColor(checkVisitedPlace, state, touchable);
           });
         }
       }
     }
 
+  }
+
+  private updateCheckColor(checkVisitedPlace, state, touchable) {
+    let color;
+
+    if(!checkVisitedPlace) {
+      color = 'none';
+    } else {
+      state.outedges.forEach(edge => {
+        if(edge.to !== 'capa' && this.userEvaluator.answeredRightQuestionStates.indexOf(edge.to) === -1) {
+          color = '#cccccc';
+        }
+      });
+    }
+
+
+    if(color) {
+      switch(touchable.id) {
+        case "cozinha":
+          document.getElementById('check-cozinha').style.fill = color;
+          break;
+        case "sala":
+          document.getElementById('check-sala').style.fill = color;
+          break;
+        case "quarto 2":
+          document.getElementById('check-quarto2').style.fill = color;
+          break;
+        case "banheiro":
+          document.getElementById('check-banheiro').style.fill = color;
+          break;
+        case "quarto 1":
+          document.getElementById('check-quarto1').style.fill = color;
+          break;
+        case "aservico":
+          document.getElementById('check-aservico').style.fill = color;
+          break;
+        default:
+          break;
+      }
+    }
   }
 
 }

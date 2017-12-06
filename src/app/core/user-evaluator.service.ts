@@ -144,4 +144,18 @@ export class UserEvaluatorService {
       this.db.database.ref('/users/' + this.authService.getUser().uid).update({showInstructions: showInstructions});
     }
   }
+
+  checkVisitedPlace(placeName) {
+    if(this.authService.getUser() != null) {
+      return this.db.database.ref('/users/' + this.authService.getUser().uid + '/visitedPlaces/' + placeName).once("value").then(place => {
+         return (place.val() != undefined ? place.val() : false) as boolean;
+       });
+    }
+  }
+
+  addVisitedPlace(placeName) {
+    if(this.authService.getUser() != null) {
+      this.db.database.ref('/users/' + this.authService.getUser().uid + '/visitedPlaces/').update({[placeName]: true});
+    }
+  }
 }
