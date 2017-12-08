@@ -61,7 +61,8 @@ export class PlayerComponent implements OnInit {
         quiz.quizComponent.answer();
       }
 
-      this.section.showNextButtonTip = false;
+      this.sectionServ.current.showNextButtonTip = false;
+      this.sectionServ.current.setBlinkButton(false);
       this.currentState.behavior.onNext();
     }
   }

@@ -176,6 +176,7 @@ export class State implements IState {
     if(pageName) {
       pageName === 'tryAgain' ? this._next.next(this.section.getStateByLabel(this.previousState)) : this._next.next(this.section.getStateByLabel(pageName));
       this.section.showNextButtonTip = false;
+      this.section.setBlinkButton(false);
     }
   }
   // static getStateByLabel(label: string) {

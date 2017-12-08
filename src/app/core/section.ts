@@ -1,3 +1,6 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+
 import { State, IState } from './state';
 
 type OriginType = 'firebase' | 'json';
@@ -18,6 +21,8 @@ export class Section implements ISection {
   origin: OriginType = 'json';
 
   showNextButtonTip: boolean = false;
+  private blinkButton = new BehaviorSubject<boolean>(false);
+  $blinkButton = this.blinkButton.asObservable();
 
   constructor(sectionData?: Partial<ISection>) {
     if (sectionData) {
@@ -70,6 +75,10 @@ export class Section implements ISection {
     for (let state of this.states) {
       state.updateBehavior();
     }
+  }
+
+  setBlinkButton(status) {
+    this.blinkButton.next(status);
   }
 
   toJson() {
