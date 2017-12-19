@@ -40,8 +40,11 @@ export class QuizComponent implements OnInit {
   }
 
   helpDisplay() {
-    this.isHelpOn = !this.isHelpOn;
+    //this.isHelpOn = !this.isHelpOn;
     this.userEvaluator.setHelpTrue(this.gadget.selectedQuestion.id);
+
+    let messageDlg = this.dialog.open(MessageDialog);
+    messageDlg.componentInstance.message = this.gadget.selectedQuestion.ajuda_pergunta;
   }
 
   answer() {

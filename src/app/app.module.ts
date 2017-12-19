@@ -25,6 +25,7 @@ import 'hammerjs';
 import { GadgetComponent } from "app/player/gadget/gadget.component";
 import { MessageDialog } from './ui/message-dialog/message-dialog.component';
 import { MenuButton } from './player/menu-button/menu-button.component';
+import { StarRatingComponent } from './player/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MenuButton } from './player/menu-button/menu-button.component';
     NextButtonComponent,
     OpcoesMenuComponent,
     MessageDialog,
-    MenuButton
+    MenuButton,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

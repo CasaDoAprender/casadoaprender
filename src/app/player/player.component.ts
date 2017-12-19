@@ -9,6 +9,7 @@ import { Quiz } from 'app/core/quiz';
 import { Svg } from 'app/core/svg';
 import { UserEvaluatorService } from "app/core/user-evaluator.service";
 import { AuthService } from 'app/core/auth.service';
+import {StarRatingComponent} from "app/player/star-rating/star-rating.component";
 
 @Component({
   selector: 'app-player',
@@ -20,6 +21,7 @@ import { AuthService } from 'app/core/auth.service';
 export class PlayerComponent implements OnInit {
   @ViewChild('scroll') scrollRef: ElementRef;
   @ViewChild(InterventionComponent) intervention: InterventionComponent;
+  @ViewChild(StarRatingComponent) starRating: StarRatingComponent;
 
   height: number;
   width: number;
@@ -93,6 +95,7 @@ export class PlayerComponent implements OnInit {
               this.userInfo = this.authService.getUser().displayName.substring(0, 20) + " - ( " + score + " )";
             });
 
+            this.starRating.updateStarsImage();
             if(state.label == "capa") {
                this.userEvaluator.showInstructions().then(showInstructions => {
                  if(showInstructions) {

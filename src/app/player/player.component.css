@@ -14,10 +14,12 @@
 }
 
 #msg-box {
+	position: relative;
 	padding: 15px;
 	min-height: 20px;
 	background-color: powderblue;
-	margin: auto;
+	left:0px;
+	right:0px;
 }
 
 #msg {
