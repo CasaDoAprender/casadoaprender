@@ -27,8 +27,10 @@ export class SvgComponent implements OnInit {
 
     this.gadget.setReady();
     const touchables = svgElm.getElementsByClassName('touchable');
-    this.updateTouchables(touchables);
-    this.updateChecks(touchables);
+    if(touchables.length > 0) {
+      this.updateTouchables(touchables);
+      this.updateChecks(touchables);
+    }
 
   }
 

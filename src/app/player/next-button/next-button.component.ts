@@ -9,7 +9,7 @@ import { SectionService } from 'app/core/section.service';
   styleUrls: ['./next-button.component.css'],
   animations: [
     trigger('visibilityState', [
-      state('blinking', style({opacity: '0.5'})),
+      state('blinking', style({opacity: '0.3'})),
       state('normal', style({opacity: '1'})),
       transition('blinking <=> normal', animate('1s linear'))
     ])

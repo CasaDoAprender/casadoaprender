@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           if(user) {
             this.gadget.isUserLoggedIn = true;
             this.welcome = "Bem vindo(a) " + user.displayName.substring(0, 20) + "!";
-            this.sectionService.current.showNextButtonTip = true;
+            //this.sectionService.current.showNextButtonTip = true;
             this.sectionService.current.setBlinkButton(true);
           } else {
             this.gadget.isUserLoggedIn = false;

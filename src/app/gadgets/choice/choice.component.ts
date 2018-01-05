@@ -24,7 +24,7 @@ export class ChoiceComponent implements OnInit {
   onClick() {
 
     if(this.sectionService.currentState.label == "inicio") {
-      this.sectionService.current.showNextButtonTip = true;
+      //this.sectionService.current.showNextButtonTip = true;
       this.sectionService.current.setBlinkButton(true);
     }
 
