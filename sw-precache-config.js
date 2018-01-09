@@ -3,13 +3,16 @@ module.exports = {
     'dist/index.html',
     'dist/**.js',
     'dist/**.css',
-    'dist/assets/server/**.svg'
+    'dist/assets/server/**.svg',
+    'dist/assets/server/**.jpeg',
+    'dist/assets/server/**.png'
   ],
   root: 'dist/',
   stripPrefix: 'dist',
   navigateFallback: '/index.html',
+  navigateFallbackWhitelist: [ /^\/home\//, /^\/other\// ], //needed for firebase auth
   runtimeCaching: [{
-    urlPattern: /casa-do-aprender-d7556\.firebaseapp\.com/,
+    urlPattern: /todo/,
     handler: 'networkFirst'
   }]
 

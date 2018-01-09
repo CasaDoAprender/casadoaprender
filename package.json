@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sw": "sw-precache --root=dist --config=sw-precache-config.js --verbose",
+    "sw": "sw-precache --root=dist --config=sw-precache-config.js --maximumFileSizeToCacheInBytes 6097152 --verbose",
     "serve": "cd dist && live-server --port=4200 --host=0.0.0.0 --entry-file=/index.html"
   },
   "private": true,
