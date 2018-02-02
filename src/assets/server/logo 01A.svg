@@ -80,9 +80,9 @@
        id="style47"
        type="text/css"><![CDATA[
     @font-face { font-family:"Futura XBlk BT";src:url("#FontID0") format(svg)}
-    .fil2 {fill:#DA251D}
-    .fil1 {fill:#E77844}
-    .fil0 {fill:#FFFCC8}
+    .fil02 {fill:#DA251D}
+    .fil01 {fill:#E77844}
+    .fil00 {fill:#FFFCC8}
     .fnt1 {font-weight:normal;font-size:11.8496;font-family:'Futura XBlk BT'}
     .fnt2 {font-weight:normal;font-size:21.853;font-family:'Futura XBlk BT'}
     .fnt0 {font-weight:normal;font-size:22.4002;font-family:'Futura XBlk BT'}
@@ -96,14 +96,14 @@
        height="74.194199"
        width="169.715"
        x="-1.89415e-005"
-       class="fil0" /><path
+       class="fil00" /><path
        style="fill:#e77844"
        id="path54"
        d="m 25.6403,30.2366 -10.9319,4.29585 0.196524,10.7225 0.832473,-0.455307 -0.104059,-9.49403 4.11033,-1.64585 0.711168,9.75671 0.867062,-0.173334 -0.242707,-9.9166 3.2877,-1.78245 1.27336,-1.30746 z m 1.02354,-1.60454 -13.5973,5.11575 0.485707,13.0346 14.0829,-3.44827 -0.971218,-14.7021 z M 115.60144,28.5813 75.64924,6.2828001 29.55044,16.7272 3.55534,28.0034 l 0.924255,4.62147 4.59848,-0.797299 2.44929,36.9366 21.8706,-0.02319 -3.89335,-48.2936 2.70749,-0.601945 3.84814,-0.855954 40.5133,-9.0095901 33.123895,18.3010001 5.90389,0.300388 z"
-       class="fil1" /><g
+       class="fil01" /><g
        id="_152436984"><text
          style="font-weight:normal;font-size:22.40019989px;font-family:'Futura XBlk BT';fill:#da251d"
-         class="fil2 fnt0"
+         class="fil02 fnt0"
          id="_152437248"
          y="43.6189"
          x="36.496399">CASA </text>
