@@ -1,6 +1,4 @@
 {
-  "name": "Casa do Aprender",
-  "short_name": "CasaDoAprender",
   "icons": [
     {
       "src": "assets/Icons/lorem.jpg",
@@ -8,7 +6,7 @@
       "type": "image/png"
     }
   ],
-  "display": "standalone",
+  "display": "fullscreen",
   "start_url": "index.html",
-  "orientation": "portrait-primary"
+  "orientation": "portrait"
 }
