@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlatformLocation } from '@angular/common'
 import { SectionService } from "app/core/section.service";
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +18,17 @@ export class AppComponent {
     this.sectionService.loadFromFirebase();
     location.onPopState(() => {
 
-      if(sectionService.currentState.label != 'menu') {
-        sectionService.currentState.callMenu();
+      if(sectionService.currentState.label != 'inicio') {
+        //sectionService.currentState.callMenu();
+        sectionService.currentState.goToPage('inicio');
         location.pushState(null, null, '');
         console.log('not exit');
       } else {
         console.log('exit');
         location.back();
+        setTimeout(() => {
+          location.pushState(null, null, '');
+        }, 3000);
       }
 
     });
