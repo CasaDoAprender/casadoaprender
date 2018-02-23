@@ -14,8 +14,8 @@ export class AppComponent {
   menuCallState: string;
 
   constructor(private sectionService: SectionService, location: PlatformLocation) {
-    //this.sectionService.load('casa.json');
-    this.sectionService.loadFromFirebase();
+    this.sectionService.load('book.json');
+    //this.sectionService.loadFromFirebase();
     location.onPopState(() => {
 
       if(sectionService.currentState.label != 'inicio') {
@@ -25,6 +25,11 @@ export class AppComponent {
         console.log('not exit');
       } else {
         console.log('exit');
+
+        if (window.matchMedia('(display-mode: fullscreen)').matches) {
+          console.log("Thank you for installing our app!");
+        }
+
         location.back();
         setTimeout(() => {
           location.pushState(null, null, '');

@@ -42,7 +42,7 @@ export class SectionService {
     this.setCurrentState(null);
   }
 
-  load(file: string) {
+  /*load(file: string) {
     let url = urlPath + file;
     this._http.get(url)
       .map(HttpUtils.extractData)
@@ -58,6 +58,22 @@ export class SectionService {
         console.log('error: ', error);
       }
       );
+  }*/
+
+  load(file: string) {
+    let url = urlPath + file;
+    this._http.get(url)
+              .map(HttpUtils.extractData)
+              .catch(HttpUtils.handleError)
+              .subscribe(data => {
+                let sectionData = data as Partial<Section>;
+                if (sectionData) {
+                 this.changeSection(new Section(sectionData));
+                }
+                }, error => {
+                  console.log('error: ', error);
+                }
+              );
   }
 
   loadFromFirebase() {

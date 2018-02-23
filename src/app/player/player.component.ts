@@ -109,6 +109,8 @@ export class PlayerComponent implements OnInit {
 
           } else {
             this.isUserLoggedIn = false;
+            this.userInfo = "";
+            this.starRating.hide();
           }
           this.contentState = state;
           this.intervention.hide();

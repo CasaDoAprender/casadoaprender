@@ -56,4 +56,8 @@ export class StarRatingComponent implements OnInit {
 
   }
 
+  hide() {
+    this.img= '';
+  }
+
 }

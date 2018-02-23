@@ -3,6 +3,7 @@ module.exports = {
     'dist/index.html',
     'dist/**.js',
     'dist/**.css',
+    'dist/assets/server/book.json',
     'dist/assets/server/**.svg',
     'dist/assets/server/**.jpeg',
     'dist/assets/server/**.png'
