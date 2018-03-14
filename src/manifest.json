@@ -1,0 +1,12 @@
+{
+  "icons": [
+    {
+      "src": "assets/Icons/lorem.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "display": "fullscreen",
+  "start_url": "index.html",
+  "orientation": "portrait"
+}

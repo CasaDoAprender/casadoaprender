@@ -1,0 +1,46 @@
+<div id="svg-container" *ngIf="waitingLoad">
+  <img src="assets/server/loading.svg" style="display: block; margin: auto "/>
+</div>
+
+
+
+<div class="full-container">
+  <div *ngIf="error">
+    {{ error }}
+  </div>
+  <div class="scroll">
+
+    <div id="msg-box">
+      <div id="msg" [innerHTML]="userInfo"></div>
+      <menu-button></menu-button>
+      <app-star-rating></app-star-rating>
+    </div>
+
+    <div class="container">
+
+
+      <div class="gadget-items" *ngFor="let gadget of contentState?.page.gadgets; index as i">
+        <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
+        <!--<app-controls [gadget]="gadget"></app-controls>-->
+      </div>
+
+
+
+
+      <app-intervention>
+        <div class="gadget-items" *ngFor="let gadget of interventionState?.page.gadgets; index as i">
+          <app-gadget *ngIf="gadget.isReady(contentState.page, i)" [gadget]="gadget"></app-gadget>
+          <!--<app-controls [gadget]="gadget"></app-controls>-->
+        </div>
+      </app-intervention>
+
+
+      <span class="tooltipNextButton" *ngIf="section?.showNextButtonTip">Clique para continuar --></span>
+      <app-next-button *ngIf="!waitingLoad" (onNext)="nextState()"></app-next-button>
+
+
+      <div *ngIf="menu">
+        <opcoes-menu></opcoes-menu>
+      </div>
+  </div>
+</div>

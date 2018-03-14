@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CasaDoAprender</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+  <script type = "text/javascript" >
+    //if(history.state) {
+      history.pushState(null, null, '');
+    //}
+    // window.addEventListener('popstate', function(event) {
+    //   history.pushState(null, null, '');
+    // });
+
+    if('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+</script>
+</body>
+</html>

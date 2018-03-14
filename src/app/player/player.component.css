@@ -1,0 +1,45 @@
+*{
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+.gadget-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll {
+  overflow-y: auto;
+  height: 100%;
+}
+
+#msg-box {
+	position: relative;
+	padding: 15px;
+	min-height: 20px;
+	background-color: powderblue;
+	left:0px;
+	right:0px;
+}
+
+#msg {
+	text-align:center;
+	color: black;
+	font-family:Georgia,"Times New Roman",Times,serif;
+}
+
+
+
+#svg-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.tooltipNextButton {
+	position: absolute;
+	font-size: small;
+	color: red;
+  bottom: 30px;
+  right: 70px;
+}

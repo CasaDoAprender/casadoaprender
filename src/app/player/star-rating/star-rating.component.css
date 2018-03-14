@@ -1,0 +1,16 @@
+.starClass{
+  height: 15px;
+  width: 80px;
+
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  overflow: hidden;
+  outline:none;
+  float: right;
+
+
+}
